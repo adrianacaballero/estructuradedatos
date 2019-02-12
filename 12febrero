@@ -1,0 +1,24 @@
+// 12febrero.cpp : Defines the entry point for the console application.
+//
+//librerias
+#include "stdafx.h"
+#include "iostream"
+#include "conio.h"
+#include "stdlib.h"
+#include "stdio.h"
+using namespace std;
+
+//prototipo es la funcion
+//programa principal
+void main ()
+{//tipos de datos
+	float precio, iva, pf;
+   do{cout<<"ingrese precio"<<endl;
+	  cin>>precio;
+     }while (precio<0);
+
+  iva=precio*0.13;
+  pf=iva+precio;
+  cout<<"el precio con iva es: "<<pf<<endl;
+getch();
+}
