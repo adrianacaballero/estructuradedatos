@@ -1,0 +1,118 @@
+//concatenar.h
+#pragma once
+
+class Concatenar
+{
+private:
+       int A[100], B[100], n, m, V[100];
+
+public:
+       Concatenar(void);
+       ~Concatenar(void);
+       void cargar1();
+       void cargar2();
+       void mostrar();
+       void concatenar();
+
+};
+
+
+
+//concatenar.cpp
+#include "StdAfx.h"
+#include "Concatenar.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+ 
+
+Concatenar::Concatenar(void)
+{
+}
+
+
+Concatenar::~Concatenar(void)
+{
+}
+
+
+void Concatenar::cargar1()
+{
+ cout<<"ingrese el tamaño del primer vector: "<<endl;
+ cin>>n;
+  
+   for(int a=0; a<n; a++)
+       {
+		cout<<"A["<<a<<"]=";
+        cin>>A[a];
+       }
+}
+
+ 
+void Concatenar::cargar2()
+
+{
+  cout<<"ingrese el tamaño del segundo vector: "<<endl;
+  cin>>m;
+
+    for(int a=0; a<m; a++)
+        {
+         cout<<"B["<<a<<"]=";
+         cin>>B[a];
+	}
+}
+
+
+void Concatenar::concatenar()
+
+{
+ int cont=0;
+   for(int a=0; a<n; a++)
+       {
+         V[cont]=A[a];
+         cont++;
+       }
+
+    for(int a=0; a<m; a++)
+       {
+         V[cont]=B[a];
+         cont++;
+       }
+}
+
+ 
+
+void Concatenar::mostrar()
+
+{
+ for(int a=0; a<(n+m); a++)
+     {
+	   cout<<V[a];
+      }
+
+}
+
+//8marzo.cpp
+
+// 8marzo.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "Concatenar.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+ 
+
+void main()
+{
+   Concatenar c;
+   c.cargar1();
+   c.cargar2();
+   c.concatenar();
+   c.mostrar();
+   getch();
+}
+	
