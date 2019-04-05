@@ -1,0 +1,200 @@
+//Matriz.h
+#pragma once
+#define MAX 10
+class Matriz
+class matriz
+{
+private:
+	int M[MAX][MAX];
+	int m,n;
+    int mat[10][10];
+    int m,n;
+public:
+	Matriz(int _n, int _m);
+	~Matriz(void);
+	void cargarmat();
+	void devolvermat(int _M[MAX][MAX]);
+	void mostrarmat();
+	void sumarmat(int _M1[MAX][MAX], int _M2[MAX][MAX]);
+    matriz(int _n, int _m);
+    ~matriz(void);
+    void cargarmat();
+    void mostrarmat();
+    void devolvermat(int _mat[10][10]);
+    void sumarmat(int _mat1[10][10],int _mat2[10][10]);
+};
+
+
+//Matriz.cpp
+#include "StdAfx.h"
+#include "Matriz.h"
+#include <iostream>
+#include "matriz.h"
+#include "iostream"
+using namespace std;
+
+
+Matriz::Matriz(int _n, int _m)
+matriz::matriz(int _n,int _m)
+{
+	m=_m;
+	n=_n;
+    n=_n;
+    m=_m;
+
+}
+
+
+Matriz::~Matriz(void)
+matriz::~matriz(void)
+{
+}
+
+void Matriz::cargarmat()
+void matriz::cargarmat()
+{
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<m;j++)
+		{
+			cout<<"Ingresa M["<<i<<"]["<<j<<"]= ";
+			cin>>M[i][j];
+		}
+	}
+}
+    for (int a=0;a<n;a++)
+        for (int b=0;b<m;b++)
+        {
+            cout<<"ingresar m["<<a<<"]["<<b<<"]=";
+            cin>>mat[a][b];
+        }
+    }
+
+
+void Matriz::devolvermat(int _M[MAX][MAX])
+void matriz::mostrarmat()
+{
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<m;j++)
+		{
+			_M[i][j]=M[i][j];
+		}
+	}
+    for (int a=0;a<n;a++)
+        {
+            for (int b=0;b<m;b++)
+            {
+                cout<<mat[a][b];
+            }
+            cout<<endl;
+        }
+}
+
+void Matriz::mostrarmat()
+
+void matriz::devolvermat(int _mat[10][10])
+{
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<m;j++)
+		{
+			cout<<" M["<<i<<"]["<<j<<"] ";
+			cout<<M[i][j];
+		}
+		cout<<endl; //salte una linea al terminar la fila.
+	}
+    for (int a=0;a<n;a++)
+        for (int b=0;b<m;b++)
+        {
+            _mat[a][b]=mat[a][b];
+        }
+}
+
+void Matriz::sumarmat(int _M1[MAX][MAX], int _M2[MAX][MAX])
+void matriz::sumarmat(int _mat1[10][10],int _mat2[10][10])
+{
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<m;j++)
+		{
+			M[i][j]= _M1[i][j] + _M2[MAX][MAX];
+		}
+	}
+    for (int a=0;a<n;a++)
+        {for (int b=0;b<m;b++)
+        {
+            mat[a][b]=_mat1[a][b]+_mat2[a][b];
+
+        }}
+}
+
+//EjemploMatriz
+#include "stdafx.h"
+#include <iostream>
+#include "Matriz.h"
+
+
+// arrays.cpp : Defines the entry point for the console application.
+//
+
+#include "StdAfx.h"
+#include "matriz.h"
+#include "iostream"
+#include "conio.h"
+#define MAX 10
+using namespace std;
+
+void main()
+{
+ int nrow, ncol, MAT1[MAX][MAX], MAT2[MAX][MAX];
+ do{
+	 cout<<"Ingrese el numero de filas: ";
+	 cin>>nrow;
+ }while((nrow<0)||(nrow>MAX));
+
+  do{
+	 cout<<"Ingrese el numero de columnas: ";
+	 cin>>ncol;
+ }while((nrow<0)||(ncol>MAX));
+
+  Matriz m1(nrow, ncol);
+  Matriz m2(nrow, ncol);
+
+  m1.cargarmat();
+  m1.devolvermat(MAT1);
+  m2.cargarmat();
+  m2.devolvermat(MAT2);
+
+  Matriz m3(nrow, ncol);
+  m3.sumarmat(MAT1,MAT2);
+
+  cout<<"La matriz resultante de sumar es: ";
+  m3.mostrarmat();
+    int nrow,ncol,mat1[10][10],mat2[10][10];
+    do{
+        cout<<"ingrese num fil: ";
+        cin>>nrow;
+    }while(nrow<0||nrow>10);
+
+    do{
+        cout<<"ingrese num col: ";
+        cin>>ncol;
+    }while(ncol<0||ncol>10);
+
+    matriz m1(nrow,ncol);
+    matriz m2(nrow,ncol);
+    m1.cargarmat();
+    m1.devolvermat(mat1);
+    m1.mostrarmat();
+    m2.cargarmat();
+    m2.devolvermat(mat2);
+    m2.mostrarmat();
+    matriz m3(nrow,ncol);
+    m3.sumarmat(mat1,mat2);
+    cout<<"la matriz suma es:"<<endl;
+    m3.mostrarmat();
+    getch();
+
+ getch();
+}
