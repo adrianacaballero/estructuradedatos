@@ -1,0 +1,203 @@
+#pragma once
+#include "persona.h"
+#include <string>
+using namespace std;
+
+class docente : public persona
+{
+public:
+    docente(void);
+    ~docente(void);
+    string devolvernombred();
+    int devolveredadd();
+	int devolverhorasdetrabajo();
+	int sueldo();
+};
+
+
+
+#include "StdAfx.h"
+#include "docente.h"
+#include <string>
+using namespace std;
+
+
+docente::docente(void)
+{
+}
+
+
+docente::~docente(void)
+{
+}
+
+int docente::devolveredadd()
+{
+    return edad;
+}
+
+string docente::devolvernombred()
+{
+    return nombre;
+}
+
+int docente::devolverhorasdetrabajo()
+{
+    return (horas*30);
+}
+int docente::sueldo()
+{
+    return (horas*30*7);
+}
+
+
+#pragma once
+#include "persona.h"
+#include <string>
+using namespace std;
+
+class alumno : public persona
+{
+public:
+    alumno(void);
+    ~alumno(void);
+    string devolvernombre();
+    int devolveredad();
+	int devolverhorasdeestudio();
+};
+
+
+#include "StdAfx.h"
+#include "alumno.h"
+#include <string>
+using namespace std;
+
+
+alumno::alumno(void)
+{
+}
+
+
+alumno::~alumno(void)
+{
+}
+
+int alumno::devolveredad()
+{
+    return edad;
+}
+
+string alumno::devolvernombre()
+{
+    return nombre;
+}
+
+int alumno::devolverhorasdeestudio()
+{
+    return (horas*30);
+}
+
+
+#pragma once
+#include <string>
+using namespace std;
+class persona
+{
+protected:
+    string nombre;
+    int edad;
+	int horas;
+public:
+    persona(void);
+    ~persona(void);
+    void obteneredad(int ed);
+    void obtenernombre(string nom);
+	void obtenerhoras(int h);
+};
+
+
+
+#include "StdAfx.h"
+#include "persona.h"
+
+
+persona::persona(void)
+{
+}
+
+
+persona::~persona(void)
+{
+}
+
+void persona::obteneredad(int ed)
+{
+    edad=ed;
+}
+
+void persona::obtenernombre(string nom)
+{
+    nombre=nom;
+}
+
+void persona::obtenerhoras(int h)
+{
+   horas=h;
+}
+
+
+
+// herencia1.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "docente.h"
+#include "alumno.h"
+#include "conio.h"
+#include <string>
+#include "iostream"
+
+using namespace std;
+
+
+void main ()
+{
+    alumno a;
+    string nombre1,nombre2;
+    int edad,edadp,h1,h2;
+    cout<<"ingrese nombre del alumno:";
+    getline(cin,nombre1);
+	a.obtenernombre(nombre1);
+
+    cout<<"ingrese edad del alumno:";
+    cin>>edad;
+    a.obteneredad(edad);
+
+	cout<<"ingrese horas que estudia al dia:";
+    cin>>h1;
+	a.obtenerhoras(h1);
+
+    cout<<endl;
+
+	cout<<"el nombre del alumno es:"<<a.devolvernombre()<<", su edad es:"<<a.devolveredad()<<", y estudia "<<a.devolverhorasdeestudio()<<" horas al mes";
+   
+	cout<<endl;
+
+	docente d;
+	cout<<"ingrese nombre del profesor:";
+	cin.ignore();
+    getline(cin,nombre2);
+    d.obtenernombre(nombre2);
+
+
+	cout<<"ingrese edad del profesor:";
+    cin>>edadp;
+    d.obteneredad(edadp);
+
+	cout<<"ingrese horas que trabaja al dia:";
+    cin>>h2;
+	d.obtenerhoras(h2);
+
+	cout<<"el nombre del profesor es:"<<d.devolvernombred()<<", y su edad es:"<<d.devolveredadd()<<", trabaja "<<d.devolverhorasdetrabajo()<<" horas al mes"<<" y su sueldo es:"<<d.sueldo()<<" dolares";
+	getch ();
+}
