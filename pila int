@@ -1,0 +1,117 @@
+#pragma once
+class pila
+{
+private:
+	int p[10], tope;
+public:
+	pila(void);
+	~pila(void);
+	bool apilar(int elemento);
+	bool desapilar(int &elemento);
+	bool mostrarpila();
+};
+
+
+
+#include "StdAfx.h"
+#include "pila.h"
+#include <iostream>
+using namespace std;
+
+pila::pila(void)
+{
+	tope=-1;
+}
+
+
+pila::~pila(void)
+{
+}
+
+bool pila::apilar(int elemento)
+{
+	if(tope==9)
+	{
+		cout<<"la pila ya esta llena"<<endl;
+		cout<<"no se ingreso el elemento: "<<elemento<<endl;
+		return false;
+	}
+
+	else
+	{
+		tope++;
+		p[tope]=elemento;
+		return true;
+	}
+}
+
+bool pila::mostrarpila()
+{
+	for(int a=0;a<=tope;a++)
+	{
+		cout<<p[tope-a]<<endl;
+	}
+	return true;
+}
+
+bool pila::desapilar(int &elemento)
+{
+	if(tope==-1)
+	{
+		cout<<"la pila esta vacia";
+		return false;
+	}
+
+	else
+	{
+		elemento=p[tope];
+		tope--;
+		return true;
+	}
+}
+
+
+
+// pilas.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "pila.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+
+void main ()
+{
+	int n1,elemento,n2,cont1=0,cont2=0;
+
+	pila p;
+	cout<<"ingrese la cantidad de elementos:";
+	cin>>n1;
+
+	while (cont1<n1)
+	{
+		cout<<"ingrese elemento:";
+		cin>>elemento;
+		p.apilar(elemento);
+		cont1++;
+	}
+
+	cout<<"la pila es:"<<endl;
+	p.mostrarpila();
+
+	cout<<"ingrese la cantidad de elementos a desapilar:";
+	cin>>n2;
+
+	while (cont2<n2)
+	{
+		p.desapilar(elemento);
+		cont2++;
+	}
+
+	cout<<"la pila es:"<<endl;
+	p.mostrarpila();
+	getch();
+
+}
